@@ -14,8 +14,9 @@ exports.getAllCandies = async (req, res) => {
 exports.createCandy = async (req, res) => {
     const candy = new Candy({
         name: req.body.name,
-        flavor: req.body.flavor,
-        price: req.body.price
+        description: req.body.description,
+        price: req.body.price,
+        weight: req.body.weight
     });
     try {
         const newCandy = await candy.save();
