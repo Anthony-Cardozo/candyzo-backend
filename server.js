@@ -8,6 +8,15 @@ const checkoutRoutes = require('/.routes/create-checkout-page');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+/*
+const corsOptions = {
+  origin: "https://candyzo.vercel.app", // ✅ only allow this site ADD WHEN CHANGING DOMAIN
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+*/
+
 app.use(cors());
 //middleware need later
 //cors({ origin: 'http://your-production-frontend.com' })
