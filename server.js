@@ -27,4 +27,4 @@ const candyRoutes = require('./routes/candyRoutes');
 app.use('/candies', candyRoutes);
 
 
-app.listen(3001, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
