@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const checkoutRoutes = require('/.routes/create-checkout-page');
+const checkoutRoutes = require('/.routes/create-checkout-session');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
