@@ -24,8 +24,8 @@ router.post('/create-checkout-session', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items,
             mode: 'payment',
-            success_url: `${req.headers.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${req.headers.origin}/checkout/cancel`,
+            success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${req.headers.origin}/cancel`,
 
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA'], // Add country codes you want to allow
