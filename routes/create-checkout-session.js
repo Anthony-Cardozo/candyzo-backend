@@ -26,6 +26,27 @@ router.post('/create-checkout-session', async (req, res) => {
             mode: 'payment',
             success_url: `${req.headers.origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${req.headers.origin}/checkout/cancel`,
+
+            shipping_address_collection: {
+                allowed_countries: ['US', 'CA'], // Add country codes you want to allow
+              },
+
+            shipping_options: [
+                {
+                  shipping_rate_data: {
+                    type: 'fixed_amount',
+                    fixed_amount: {
+                      amount: 500, // $5.00 shipping
+                      currency: 'usd',
+                    },
+                    display_name: 'Standard Shipping',
+                    delivery_estimate: {
+                      minimum: { unit: 'business_day', value: 3 },
+                      maximum: { unit: 'business_day', value: 5 },
+                    },
+                  },
+                }
+            ]
         });
 
          console.log("✅ Stripe session created:", session.id);
