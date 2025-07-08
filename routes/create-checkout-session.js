@@ -26,6 +26,7 @@ router.post('/create-checkout-session', async (req, res) => {
             mode: 'payment',
             success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${req.headers.origin}/cancel`,
+            automatic_tax: { enabled: true },
 
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA'], // Add country codes you want to allow
